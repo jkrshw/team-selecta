@@ -20,4 +20,13 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  home: "Home"
+  how: "How it works"
+  pricing: "Pricing"
+  support: "Support"
+  sign_up: "Not a member? Sign up now"
+  login: "Login"
+  select: "Select your team the easy way."
+  coming_soon: "Coming Soon"
+  email: "email"
+  password: "password"

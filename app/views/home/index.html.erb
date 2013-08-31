@@ -1,2 +1,46 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>teamselecta.co</title>
+	<%= stylesheet_link_tag "home" %>
+</head>
+
+<body>
+<div class="container">
+	<div class="navbar navbar-fixed-top">
+		<ul class="nav navbar-nav">
+			<li><a href="#"><%=t :home %></a></li>
+			<li><a href="#"><%=t :how %></a></li>
+			<li><a href="#"><%=t :pricing %></a></li>
+			<li><a href="#"><%=t :support %></a></li>
+		</ul>
+		<div class="login pull-right">
+			<div class="navbar-form">
+				<form id="login" method="post" action="login.htm">
+					<input type="text" name="username" placeholder="<%=t :email %>"></input>
+					<input type="password" name="password" placeholder="<%=t :password %>"></input>
+					<button id="loginButton" class="btn btn-primary"><%=t :login %></button>
+					<div class="signup"><a href="#"><%=t :sign_up %></a></div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="main">
+		<div class="container">
+			<div class="row">
+				<div class="span5">
+					<%= image_tag "TS_Logo_trnsp.png" %>
+				</div>
+				<div class="span7">
+					<p class="lead"><%=t :select %></p>
+					<%= image_tag "iphone-half-field.png" %>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="text-center">
+		<h1><%=t :coming_soon %></h1>
+	</div>
+</div>
+</body>
+</html>
