@@ -46,3 +46,4 @@ gem 'unicorn'
 # gem 'debugger', group: [:development, :test]
 
 gem 'rails_12factor', group: :production
+gem 'bootstrap-sass'
