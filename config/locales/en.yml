@@ -26,6 +26,7 @@ en:
   support: "Support"
   sign_up: "Not a member? Sign up now"
   login: "Login"
+  logout: "Logout"
   select: "Select your team the easy way."
   coming_soon: "Coming Soon"
   email: "email"

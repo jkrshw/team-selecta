@@ -15,14 +15,20 @@
 			<li><a href="#"><%=t :support %></a></li>
 		</ul>
 		<div class="login pull-right">
-			<div class="navbar-form">
-				<form id="login" method="post" action="login.htm">
-					<input type="text" name="username" placeholder="<%=t :email %>"></input>
-					<input type="password" name="password" placeholder="<%=t :password %>"></input>
-					<button id="loginButton" class="btn btn-primary"><%=t :login %></button>
-					<div class="signup"><a href="#"><%=t :sign_up %></a></div>
-				</form>
-			</div>
+			<% if user_signed_in? %>
+			  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+			<% else %>
+			  <%= link_to('Login', new_user_session_path)  %>  
+			  <%= render "devise/sessions/new" %>
+				<div class="navbar-form">
+					<form id="login" method="post" action="login.htm">
+						<input type="text" name="username" placeholder="<%=t :email %>"></input>
+						<input type="password" name="password" placeholder="<%=t :password %>"></input>
+						<button id="loginButton" class="btn btn-primary"><%=t :login %></button>
+						<div class="signup"><a href="#"><%= link_to('Sign up', new_user_registration_path)  %></a></div>
+					</form>
+				</div>
+			<% end %>
 		</div>
 	</div>
 	<div class="main">
