@@ -17,7 +17,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: teamselecta_development
+  database: teamselecta_dev
   pool: 5
   username: teamselecta
   password: peer8Ool

@@ -7,9 +7,41 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-       <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+	<div class="navbar navbar-fixed-top">
+		<ul class="nav navbar-nav">
+			<li><a href="#"><%=t :home %></a></li>
+			<li><a href="#"><%=t :how %></a></li>
+			<li><a href="#"><%=t :pricing %></a></li>
+			<li><a href="#"><%=t :support %></a></li>
+		</ul>
+		<div class="login pull-right">
+			<% if user_signed_in? %>
+			  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+			<% else %>
+				<div class="navbar-form">
+					<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+					<%= f.email_field :email, :placeholder => "email" %>
+					<%= f.password_field :password, :placeholder => "password" %>
+ 					<div>
+					<% if devise_mapping.rememberable? -%>
+					   <%= f.check_box :remember_me %> <%= f.label :remember_me %>
+					<% end -%>
+					<%= f.submit "Sign in", :class => 'btn btn-primary pull-right' %></div>
+					<% end %>
+				</div>
+			<% end %>
+		</div>
+	</div>
+	<% if notice %>
+	  <p class="alert alert-notice"><%= notice %></p>
+	<% end %>
+	<% if alert %>
+	  <p class="alert alert-error"><%= alert %></p>
+	<% end %>
 <%= yield %>
+
+
+
 
 </body>
 </html>
