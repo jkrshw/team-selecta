@@ -54,7 +54,7 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: teamselecta_production
+  database: teamselecta_prod
   pool: 5
   username: teamselecta
   password:
