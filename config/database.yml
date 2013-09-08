@@ -49,7 +49,7 @@ test:
   database: teamselecta_test
   pool: 5
   username: teamselecta
-  password:
+  password: peer8Ool
 
 production:
   adapter: postgresql
