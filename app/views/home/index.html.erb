@@ -1,28 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>teamselecta.co</title>
-	<%= stylesheet_link_tag "home" %>
+  <title>teamselecta.co</title>
+  <%= stylesheet_link_tag "home" %>
 </head>
 
 <body>
+<div class="top-bar">
+  <div class="top-bar-section">
+    <ul>  
+      <li><a href="#"><%= t('home') %></a></li>
+      <li><a href="#"><%= t('how') %></a></li>
+      <li><a href="#"><%= t('pricing') %></a></li>
+      <li><a href="#"><%= t('support') %></a></li>  
+    </ul>
+  </div>
+  <div class="top-bar-section right">
+    <ul>  
+      <li>
+    	  <% if user_signed_in? %>
+          <%= link_to(t('logout'), destroy_user_session_path, :method => :delete) %>
+        <% else %>
+          <a href="#" data-reveal-id="login"><%= t('login') %></a>
+	    	  <% end %>
+      </li>
+    </ul>
+  </div>
+</div>
+<div id="login" class="reveal-modal">
+	<%= form_for(user_resource, :as => user_resource_name, :url => session_path(user_resource_name)) do |f| %>
+	<%= f.email_field :email, :placeholder => "email" %>
+	<%= f.password_field :password, :placeholder => "password" %>
+		<div>
+	<% if devise_mapping.rememberable? -%>
+	   <%= f.check_box :remember_me %> <%= f.label :remember_me %>
+	<% end -%>
+	<%= f.submit "Sign in", :class => 'button' %></div>
+	<% end %>
+</div>
 <div class="container">
-	<div class="main">
-		<div class="container">
-			<div class="row">
-				<div class="span5">
-					<%= image_tag "TS_Logo_trnsp.png" %>
-				</div>
-				<div class="span7">
-					<p class="lead"><%=t :select %></p>
-					<%= image_tag "iphone-half-field.png" %>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="text-center">
-		<h1><%=t :coming_soon %></h1>
-	</div>
+  <div class="row">
+    <div class="large-5 columns">
+      <%= image_tag "TS_Logo_trnsp.png" %>
+    </div>
+    <div class="large-7 columns">
+      <p class="lead"><%=t :select %></p>
+      <%= image_tag "iphone-half-field.png" %>
+    </div>
+  </div>
+	<div class="soon"><h1><%=t :coming_soon %></h1></div>
 </div>
 </body>
 </html>

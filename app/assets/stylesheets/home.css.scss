@@ -1,18 +1,12 @@
-body {
-  padding-top: 70px;
-}
-
 /* line 12, ../../sass/screen.scss */
 a:link, a:visited, a:hover, a:active {
   /*color: $alt;*/
 }
 
-/* line 16, ../../sass/screen.scss */
-.login {
-  margin-right: 30px;
+.login label {
+	display: inline;
 }
 
-/* line 20, ../../sass/screen.scss */
-.main {
-  margin-top: 100px;
+.soon {
+	text-align:center;
 }

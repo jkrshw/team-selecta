@@ -11,8 +11,5 @@
  *= require_self
  *= require_tree .
  */
-@import "bootstrap";
 
-.login label {
-	display: inline;
-}
+ //= require foundation_and_overrides
