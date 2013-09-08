@@ -46,5 +46,7 @@ gem 'unicorn'
 # gem 'debugger', group: [:development, :test]
 
 gem 'rails_12factor', group: :production
-gem 'bootstrap-sass'
 gem 'devise'
+
+gem 'compass-rails'
+gem 'zurb-foundation', '~> 4.0.0'
