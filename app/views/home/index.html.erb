@@ -27,6 +27,7 @@
     </ul>
   </div>
 </div>
+<% if !user_signed_in? %>
 <div id="login" class="reveal-modal">
 	<%= form_for(user_resource, :as => user_resource_name, :url => session_path(user_resource_name)) do |f| %>
 	<%= f.email_field :email, :placeholder => "email" %>
@@ -38,6 +39,7 @@
 	<%= f.submit "Sign in", :class => 'button' %></div>
 	<% end %>
 </div>
+<% end %>
 <div class="container">
   <div class="row">
     <div class="large-5 columns">
