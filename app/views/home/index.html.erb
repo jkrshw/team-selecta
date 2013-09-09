@@ -30,13 +30,13 @@
 <% if !user_signed_in? %>
 <div id="login" class="reveal-modal">
 	<%= form_for(user_resource, :as => user_resource_name, :url => session_path(user_resource_name)) do |f| %>
-	<%= f.email_field :email, :placeholder => "email" %>
-	<%= f.password_field :password, :placeholder => "password" %>
+	<%= f.email_field :email, :placeholder => t('email') %>
+	<%= f.password_field :password, :placeholder => t('password') %>
 		<div>
 	<% if devise_mapping.rememberable? -%>
 	   <%= f.check_box :remember_me %> <%= f.label :remember_me %>
 	<% end -%>
-	<%= f.submit "Sign in", :class => 'button' %></div>
+	<%= f.submit t('login'), :class => 'button' %></div>
 	<% end %>
 </div>
 <% end %>
@@ -46,11 +46,11 @@
       <%= image_tag "TS_Logo_trnsp.png" %>
     </div>
     <div class="large-7 columns">
-      <p class="lead"><%=t :select %></p>
+      <p class="lead"><%=t('select') %></p>
       <%= image_tag "iphone-half-field.png" %>
     </div>
   </div>
-	<div class="soon"><h1><%=t :coming_soon %></h1></div>
+	<div class="soon"><h1><%=t('coming_soon') %></h1></div>
 </div>
 </body>
 </html>
