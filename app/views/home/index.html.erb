@@ -29,6 +29,9 @@
 </div>
 <% if !user_signed_in? %>
 <div id="login" class="reveal-modal">
+  <%= link_to user_omniauth_authorize_path(:facebook) do %>
+    <%= image_tag "fb_login.png" %>
+  <% end %>
   <div class="sign-in panel">
   	<%= form_for(user_resource, :as => user_resource_name, :url => session_path(user_resource_name)) do |f| %>
     <%= f.label :email %>
