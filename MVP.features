@@ -1,0 +1,16 @@
+MVP.features
+
+User account
+	Club Admin, Selector, Player Account roles
+	Facebook (social) signup
+
+Create trial event
+	Email - event reminders, event feedback
+	Online signup for trials event
+	Bulk invite of players for event
+
+TeamSelecta Algorithm
+	Player ranking - single score, global rank
+	Player notes
+	Player positioning
+	Trials team - manual generation - basic auto
