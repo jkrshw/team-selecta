@@ -53,3 +53,5 @@ gem 'zurb-foundation', '~> 4.0.0'
 
 gem 'omniauth'
 gem 'omniauth-facebook'
+
+gem 'newrelic_rpm'
