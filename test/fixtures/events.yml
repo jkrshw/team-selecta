@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  club_id: 
+  name: MyString
+  description: MyText
+  time: 2013-09-21 14:54:05
+  location: MyString
+
+two:
+  club_id: 
+  name: MyString
+  description: MyText
+  time: 2013-09-21 14:54:05
+  location: MyString
