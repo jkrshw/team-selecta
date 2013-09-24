@@ -11,15 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130924062632) do
+ActiveRecord::Schema.define(version: 20130924065100) do
+
+  create_table "admin_memberships", force: true do |t|
+    t.integer  "club_id"
+    t.integer  "hub_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "admin_memberships", ["club_id"], name: "index_admin_memberships_on_club_id", using: :btree
+  add_index "admin_memberships", ["hub_id"], name: "index_admin_memberships_on_hub_id", using: :btree
+  add_index "admin_memberships", ["user_id"], name: "index_admin_memberships_on_user_id", using: :btree
 
   create_table "affiliations", force: true do |t|
     t.integer "hub_id"
     t.integer "club_id"
   end
-
-  add_index "affiliations", ["club_id"], name: "index_affiliations_on_club_id", using: :btree
-  add_index "affiliations", ["hub_id"], name: "index_affiliations_on_hub_id", using: :btree
 
   create_table "clubs", force: true do |t|
     t.string   "name"
