@@ -15,8 +15,8 @@ class CreateClubsAndHubs < ActiveRecord::Migration
     end
 
     create_table :affiliations do |t|
-      t.belongs_to :hub
-      t.belongs_to :club
+      t.belongs_to :hub, index: true
+      t.belongs_to :club, index: true
     end
   end
 end
