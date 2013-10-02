@@ -11,24 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130924065100) do
-
-  create_table "admin_memberships", force: true do |t|
-    t.integer  "club_id"
-    t.integer  "hub_id"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "admin_memberships", ["club_id"], name: "index_admin_memberships_on_club_id", using: :btree
-  add_index "admin_memberships", ["hub_id"], name: "index_admin_memberships_on_hub_id", using: :btree
-  add_index "admin_memberships", ["user_id"], name: "index_admin_memberships_on_user_id", using: :btree
+ActiveRecord::Schema.define(version: 20130924062632) do
 
   create_table "affiliations", force: true do |t|
     t.integer "hub_id"
     t.integer "club_id"
   end
+
+  add_index "affiliations", ["club_id"], name: "index_affiliations_on_club_id", using: :btree
+  add_index "affiliations", ["hub_id"], name: "index_affiliations_on_hub_id", using: :btree
 
   create_table "clubs", force: true do |t|
     t.string   "name"
@@ -56,17 +47,18 @@ ActiveRecord::Schema.define(version: 20130924065100) do
     t.datetime "updated_at"
   end
 
-  create_table "memberships", force: true do |t|
+  create_table "members", force: true do |t|
     t.integer  "user_id"
     t.integer  "club_id"
     t.datetime "joined"
     t.datetime "ended"
+    t.boolean  "admin"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "memberships", ["club_id"], name: "index_memberships_on_club_id", using: :btree
-  add_index "memberships", ["user_id"], name: "index_memberships_on_user_id", using: :btree
+  add_index "members", ["club_id"], name: "index_members_on_club_id", using: :btree
+  add_index "members", ["user_id"], name: "index_members_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

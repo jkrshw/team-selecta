@@ -1,4 +1,6 @@
 class ClubsController < ApplicationController
+  respond_to :html, :xml, :json
+
   before_filter :authenticate_user!, only: [:new, :create]
   # before_filter :check_hub_admin!, only: [:update, :destroy]
   skip_before_filter :verify_authenticity_token 
@@ -35,8 +37,9 @@ class ClubsController < ApplicationController
     saved = false
     Club.transaction do
       @club = Club.new(club_params)
-      admin_membership = AdminMembership.new(club:@club,user:current_user)
-      saved = @club.save and admin_membership.save
+      member = Member.new(club:@club,user:current_user)
+      member.admin = true
+      saved = @club.save and member.save
     end
     respond_to do |format|
       if saved

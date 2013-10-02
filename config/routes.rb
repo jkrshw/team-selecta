@@ -1,5 +1,7 @@
 Teamselecta::Application.routes.draw do
-  resources :clubs
+  resources :clubs do
+    resources :members
+  end
 
   resources :hubs
 

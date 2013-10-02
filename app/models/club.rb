@@ -1,4 +1,4 @@
 class Club < ActiveRecord::Base
   has_many :hubs, through: :affilaitions
-  has_many :users, through: :memberships
+  has_many :users, through: :members
 end
