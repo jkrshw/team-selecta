@@ -1,0 +1,58 @@
+<div class="top-bar">
+  <div class="top-bar-section">
+    <ul>  
+      <li><a href="/"><%= t('home') %></a></li>
+      <li> <%= link_to(t('clubs'), clubs_path )%></li>
+      <li><a href="#"><%= t('pricing') %></a></li>
+      <li><a href="#"><%= t('support') %></a></li>  
+    </ul>
+  </div>
+  <div class="top-bar-section right">
+    <ul>  
+      <li>
+    	  <% if user_signed_in? %>
+          <%= link_to(t('logout'), destroy_user_session_path, :method => :delete) %>
+        <% else %>
+          <a href="#" data-reveal-id="login"><%= t('login') %></a>
+	    	<% end %>
+      </li>
+    </ul>
+  </div>
+</div>
+<% if !user_signed_in? %>
+<div id="login" class="reveal-modal">
+  <%= link_to user_omniauth_authorize_path(:facebook) do %>
+    <%= image_tag "fb_login.png" %>
+  <% end %>
+  <div class="sign-in panel">
+  	<%= form_for(user_resource, :as => user_resource_name, :url => session_path(user_resource_name)) do |f| %>
+    <%= f.label :email %>
+  	<%= f.email_field :email, :placeholder => t('email'), :autofocus => true %>
+    <%= f.label :password %>
+  	<%= f.password_field :password, :placeholder => t('password') %>
+  		<div>
+  	<% if devise_mapping.rememberable? -%>
+  	   <%= f.check_box :remember_me %> <%= f.label :remember_me %>
+  	<% end -%>
+  	<%= f.submit t('login'), :class => 'button' %></div>
+  	<% end %>
+  </div>
+  <div><%= t('or') %></div>
+  <div class="sign-up panel">
+    <%= form_for(user_resource, :as => user_resource_name, :url => registration_path(user_resource_name)) do |f| %>
+
+      <div><%= f.label :email %>
+      <%= f.email_field :email, :placeholder => t('email') %></div>
+
+      <div><%= f.label :password %>
+      <%= f.password_field :password, :placeholder => t('password') %></div>
+
+      <div><%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, :placeholder => t('password') %></div>
+
+      <div><%= f.submit t('sign_up'), :class => 'button' %></div>
+    <% end %>
+  </div>
+
+</div>
+<% end %>
