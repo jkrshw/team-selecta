@@ -16,3 +16,10 @@ clubs = Club.create([
   { name: 'Ski Club', description: 'Varsity Hockey'  },
   { name: 'Tramping Club', description: 'Varsity Hockey'  }
   ])
+
+attending_states = AttendingState.create([
+  {name: 'invited'},
+  {name: 'attending'},
+  {name: 'maybe'},
+  {name: 'not_attending'}
+  ])

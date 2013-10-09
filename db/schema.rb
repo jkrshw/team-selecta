@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130924062632) do
+ActiveRecord::Schema.define(version: 20131009071846) do
 
   create_table "affiliations", force: true do |t|
     t.integer "hub_id"
@@ -21,12 +21,28 @@ ActiveRecord::Schema.define(version: 20130924062632) do
   add_index "affiliations", ["club_id"], name: "index_affiliations_on_club_id", using: :btree
   add_index "affiliations", ["hub_id"], name: "index_affiliations_on_hub_id", using: :btree
 
+  create_table "attending_states", force: true do |t|
+    t.string "name"
+  end
+
   create_table "clubs", force: true do |t|
     t.string   "name"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "event_users", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "event_id"
+    t.integer  "attending_state_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "event_users", ["attending_state_id"], name: "index_event_users_on_attending_state_id", using: :btree
+  add_index "event_users", ["event_id"], name: "index_event_users_on_event_id", using: :btree
+  add_index "event_users", ["user_id"], name: "index_event_users_on_user_id", using: :btree
 
   create_table "events", force: true do |t|
     t.integer  "club_id"
