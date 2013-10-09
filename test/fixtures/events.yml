@@ -2,14 +2,14 @@
 
 one:
   club_id: 
-  name: MyString
-  description: MyText
+  name: Event1
+  description: Event1ForClub1
   time: 2013-09-21 14:54:05
-  location: MyString
+  location: Event1Location
 
 two:
   club_id: 
-  name: MyString
-  description: MyText
+  name: Event2
+  description: Event2ForClub1
   time: 2013-09-21 14:54:05
-  location: MyString
+  location: Event2Location

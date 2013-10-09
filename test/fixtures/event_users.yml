@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  club_id: 
-  joined: 2013-09-24 18:26:32
+ user_id: 1
+ event_id: 1
 
 two:
-  club_id: 
-  joined: 2013-09-24 18:26:32
+ user_id: 2
+ event_id: 1
