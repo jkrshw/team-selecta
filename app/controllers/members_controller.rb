@@ -1,10 +1,17 @@
 class MembersController < ApplicationController
   before_action :set_member, only: [:show, :edit, :update, :destroy]
 
+  before_filter :authenticate_user!, only: [:new, :create, :update, :destroy]
+  skip_before_filter :verify_authenticity_token 
+
   # GET /members
   # GET /members.json
   def index
-    @members = Member.all
+    if params[:club_id]
+      @members = Member.where(club_id:params[:club_id])
+    else
+      @members = Member.all
+    end
   end
 
   # GET /members/1
@@ -14,7 +21,7 @@ class MembersController < ApplicationController
 
   # GET /members/new
   def new
-    @member = Member.new(member_params)
+    @member = Member.new(member_params.require(:club_id))
   end
 
   # GET /members/1/edit
@@ -24,7 +31,7 @@ class MembersController < ApplicationController
   # POST /members
   # POST /members.json
   def create
-    @member = Member.new(member_params)
+    @member = Member.new(member_params.require(:club_id))
 
     respond_to do |format|
       if @member.save

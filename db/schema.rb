@@ -22,8 +22,10 @@ ActiveRecord::Schema.define(version: 20131009071846) do
   add_index "affiliations", ["hub_id"], name: "index_affiliations_on_hub_id", using: :btree
 
   create_table "attending_states", force: true do |t|
-    t.string "name"
+    t.string "name", null: false
   end
+
+  add_index "attending_states", ["name"], name: "index_attending_states_on_name", unique: true, using: :btree
 
   create_table "clubs", force: true do |t|
     t.string   "name"
@@ -31,18 +33,6 @@ ActiveRecord::Schema.define(version: 20131009071846) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "event_users", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "event_id"
-    t.integer  "attending_state_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "event_users", ["attending_state_id"], name: "index_event_users_on_attending_state_id", using: :btree
-  add_index "event_users", ["event_id"], name: "index_event_users_on_event_id", using: :btree
-  add_index "event_users", ["user_id"], name: "index_event_users_on_user_id", using: :btree
 
   create_table "events", force: true do |t|
     t.integer  "club_id"
@@ -55,6 +45,18 @@ ActiveRecord::Schema.define(version: 20131009071846) do
   end
 
   add_index "events", ["club_id"], name: "index_events_on_club_id", using: :btree
+
+  create_table "guests", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "event_id"
+    t.integer  "attending_state_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "guests", ["attending_state_id"], name: "index_guests_on_attending_state_id", using: :btree
+  add_index "guests", ["event_id"], name: "index_guests_on_event_id", using: :btree
+  add_index "guests", ["user_id"], name: "index_guests_on_user_id", using: :btree
 
   create_table "hubs", force: true do |t|
     t.string   "name"

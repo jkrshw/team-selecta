@@ -1,7 +1,14 @@
 Teamselecta::Application.routes.draw do
   resources :clubs do
-    resources :members
+    resources :members, only: [:index, :new, :create]
+    resources :events, only: [:index, :new, :create]
   end
+  
+  resources :events do
+		resources :guests
+  end
+
+  resources :members
 
   resources :hubs
 

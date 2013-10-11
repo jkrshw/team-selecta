@@ -1,8 +1,7 @@
 class ClubsController < ApplicationController
   respond_to :html, :xml, :json
 
-  before_filter :authenticate_user!, only: [:new, :create]
-  # before_filter :check_hub_admin!, only: [:update, :destroy]
+  before_filter :authenticate_user!, only: [:new, :create, :update, :destroy]
   skip_before_filter :verify_authenticity_token 
 
   before_action :set_club, only: [:show, :edit, :update, :destroy]
