@@ -47,9 +47,9 @@ ActiveRecord::Schema.define(version: 20131009071846) do
   add_index "events", ["club_id"], name: "index_events_on_club_id", using: :btree
 
   create_table "guests", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "event_id"
-    t.integer  "attending_state_id"
+    t.integer  "user_id",            null: false
+    t.integer  "event_id",           null: false
+    t.integer  "attending_state_id", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

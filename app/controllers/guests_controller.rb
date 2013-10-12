@@ -9,7 +9,7 @@ class GuestsController < ApplicationController
   # GET /events/:event_id/guests
   # GET /events/:event_id/guests.json
   def index
-    @guests = Guest.all
+    @guests = Guest.where(event_id: params[:event_id])
   end
 
   # GET /events/:event_id/guests/1
@@ -29,12 +29,12 @@ class GuestsController < ApplicationController
   # POST /events/:event_id/guests
   # POST /events/:event_id/guests.json
   def create
-    @guest = @event.guests.create(user: @user)
+    @guest = @event.guests.create(guest_params)
 
     respond_to do |format|
       if @guest.save
         format.html { redirect_to @guest, notice: 'Guest was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @guest }
+        format.json { render json: @guest }
       else
         format.html { render action: 'new' }
         format.json { render json: @guest.errors, status: :unprocessable_entity }
@@ -80,12 +80,8 @@ class GuestsController < ApplicationController
       @user = User.find(params[:user_id])
     end
 
-    def set_attending
-      @attending = AttendingState.find_by name: params[:attending_state]
-    end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def guest_params
-      params.require(:guest, :event_id).permit(:user_id, :attending_state)
+      params.require(:guest).permit(:user_id, :attending_state)
     end
 end

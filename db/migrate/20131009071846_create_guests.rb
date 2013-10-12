@@ -7,9 +7,9 @@ class CreateGuests < ActiveRecord::Migration
     add_index :attending_states, :name, :unique => true
 
     create_table :guests do |t|
-      t.belongs_to :user, index: true
-      t.belongs_to :event, index: true
-      t.belongs_to :attending_state, index: true
+      t.belongs_to :user, index: true, null: false
+      t.belongs_to :event, index: true, null: false
+      t.belongs_to :attending_state, index: true, null: false
       t.timestamps
     end
   end
