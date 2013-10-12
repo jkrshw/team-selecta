@@ -1,0 +1,25 @@
+<h1>Listing attending_states</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @attending_states.each do |attending_state| %>
+      <tr>
+        <td><%= link_to 'Show', attending_state %></td>
+        <td><%= link_to 'Edit', edit_attending_state_path(attending_state) %></td>
+        <td><%= link_to 'Destroy', attending_state, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Attending state', new_attending_state_path %>

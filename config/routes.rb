@@ -12,6 +12,8 @@ Teamselecta::Application.routes.draw do
 
   resources :hubs
 
+  resources :attending_states, :only => [:index, :show]
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   get "home/index"
