@@ -1,0 +1,12 @@
+@import "foundation";
+
+.header {
+	height: 350px;
+	background-size: cover;
+	background-position:center;
+}
+
+.guest {
+	@include panel;
+	padding: 0;
+}
