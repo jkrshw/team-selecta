@@ -22,7 +22,10 @@
 
   <body>
     <%= render '/home/topbar' %>
-    <%= yield %>
+
+    <div class="yield">
+      <%= yield %>
+    </div>
 
     
     <%= javascript_include_tag "application" %>
