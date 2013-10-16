@@ -53,6 +53,9 @@
   <div class="sign-up panel">
     <%= form_for(user_resource, :as => user_resource_name, :url => registration_path(user_resource_name)) do |f| %>
 
+      <div><%= f.label :name %>
+      <%= f.text_field :name, :placeholder => t('name') %></div>
+
       <div><%= f.label :email %>
       <%= f.email_field :email, :placeholder => t('email') %></div>
 

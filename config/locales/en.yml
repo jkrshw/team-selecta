@@ -31,5 +31,6 @@ en:
   coming_soon: "Coming Soon"
   email: "email"
   password: "password"
+  name: "name"
   or: "OR"
   fb_login: "Log in with Facebook"
