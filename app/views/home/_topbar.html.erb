@@ -1,36 +1,38 @@
+<div class="outer-bar">
 <nav class="top-bar">
-  <ul class="title-area">
-    <li class="name">
-      <h1><a href="/"><%= t('team_selecta') %></a></h1>
-    </li>
-    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-  </ul>
-  <section class="top-bar-section">
-    <ul class="left">  
-      <li> <%= link_to(t('clubs'), clubs_path )%> </li>
-      <li> <%= link_to(t('events'), events_path )%> </li>
-      <li><a href="#"><%= t('support') %></a></li> 
-      <li class="has-form show-for-small">
-        <% if user_signed_in? %>
-          <%= link_to(t('logout'), destroy_user_session_path, :method => :delete, :class => "button") %>
-        <% else %>
-          <a class="button" href="#" data-reveal-id="login"><%= t('login') %></a>
-        <% end %>
+    <ul class="title-area">
+      <li class="name">
+        <h1><a href="/"><%= t('team_selecta') %></a></h1>
       </li>
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
     </ul>
-  </section>
-  <section class="top-bar-section hide-for-small">
-    <ul class="right">  
-      <li class="has-form">
-    	  <% if user_signed_in? %>
-          <%= link_to(t('logout'), destroy_user_session_path, :method => :delete, :class => "button") %>
-        <% else %>
-          <a class="button" href="#" data-reveal-id="login"><%= t('login') %></a>
-	    	<% end %>
-      </li>
-    </ul>
-  </section>
+    <section class="top-bar-section">
+      <ul class="left">  
+        <li> <%= link_to(t('clubs'), clubs_path )%> </li>
+        <li> <%= link_to(t('events'), events_path )%> </li>
+        <li><a href="#"><%= t('support') %></a></li> 
+        <li class="has-form show-for-small">
+          <% if user_signed_in? %>
+            <%= link_to(t('logout'), destroy_user_session_path, :method => :delete, :class => "button") %>
+          <% else %>
+            <a class="button" href="#" data-reveal-id="login"><%= t('login') %></a>
+          <% end %>
+        </li>
+      </ul>
+    </section>
+    <section class="top-bar-section hide-for-small">
+      <ul class="right">  
+        <li class="has-form">
+      	  <% if user_signed_in? %>
+            <%= link_to(t('logout'), destroy_user_session_path, :method => :delete, :class => "button") %>
+          <% else %>
+            <a class="button" href="#" data-reveal-id="login"><%= t('login') %></a>
+  	    	<% end %>
+        </li>
+      </ul>
+    </section>
 </nav>
+</div>
 <% if !user_signed_in? %>
 <div id="login" class="reveal-modal">
   <%= link_to user_omniauth_authorize_path(:facebook) do %>

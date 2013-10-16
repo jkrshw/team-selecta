@@ -3,7 +3,29 @@
  *= require_tree .
  *= require foundation_and_overrides
  */
+body, html {
+  height: 100%;
+}
+.body {
+	height: 100%;
+	background-color: #00C90D;
+}
+.outer-bar {
+	background-color: #111111;
+	.top-bar {
+		margin: 0 auto;
+	 	width: 950px;
+	}
+}
 .yield {
+	background-color: white;
 	max-width: 940px;
 	margin: 0 auto;
+	height: 100%;
+	padding: 10px;
+
+
+	.content {
+		background-color: white;
+	}
 }
