@@ -22,8 +22,11 @@
     </section>
     <section class="top-bar-section hide-for-small">
       <ul class="right">  
+        <% if user_signed_in? %>
+        <li><%= link_to(current_user.name, edit_user_registration_path )%></li>
+        <% end %>
         <li class="has-form">
-      	  <% if user_signed_in? %>
+          <% if user_signed_in? %>
             <%= link_to(t('logout'), destroy_user_session_path, :method => :delete, :class => "button") %>
           <% else %>
             <a class="button" href="#" data-reveal-id="login"><%= t('login') %></a>
