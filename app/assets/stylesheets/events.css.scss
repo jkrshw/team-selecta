@@ -1,7 +1,11 @@
 @import "foundation";
 
-.header {
-	margin: 0 -10px;
+#event-name {
+	display: run-in;
+}
+
+.event-header {
+	margin: -10px -10px 10px -10px;
 	height: 350px;
 	background-size: cover;
 	background-position:center;
